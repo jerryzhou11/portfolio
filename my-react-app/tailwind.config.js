@@ -2,7 +2,15 @@
 export default {
   content: ["./index.html","./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        "pixelify": ['Pixelify Sans', 'serif'],
+        "chomsky": ['Chomsky', 'sans-serif']
+      },
+      colors:{
+        'purple': '#2E2157',
+      },
+    },
   },
   plugins: [],
 }

@@ -1,8 +1,18 @@
+import About from './About.jsx'
 
 function Index(){
 
     return(
-        <h1>Hi! I'm Jerry</h1>
+        <a href="/about">
+            <div className="rounded-lg bg-purple w-[520px] h-[520px] border-2 border-black">
+                <div className="flex items-center justify-center">
+                    <div className="text-white text-4xl font-pixelify">
+                        Hi! I'm Jerry.
+                    </div>
+                </div>
+            </div>
+        </a>
+        
     );
 }
 

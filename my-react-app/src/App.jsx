@@ -11,10 +11,10 @@ function App() {
   
   return(
     <BrowserRouter>
-    <nav>
+    {/*<nav>
       <Link to="/">Home</Link>
       <Link to="/about">About</Link>
-    </nav>
+    </nav>*/}
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/about" element ={<About/>} />
