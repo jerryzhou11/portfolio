@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
+import React, { useState } from 'react';
 
-const FuzzyOverlay = () => {
+const FuzzyOverlay = ({ children, isEnabled = true }) => {
+  
   return (
-    <motion.div
+    <div>
+    {isEnabled && (<motion.div
       initial={{ transform: "translateX(-9%) translateY(-5%)" }}
       animate={{
         transform: "translateX(9%) translateY(5%)",
@@ -21,7 +24,8 @@ const FuzzyOverlay = () => {
         // backgroundImage: 'url("/noise.png")',
       }}
       className="pointer-events-none absolute -inset-[200%] opacity-[15%]"
-    />
+    />)}
+    </div>
   );
 };
 export default FuzzyOverlay

@@ -1,19 +1,18 @@
 
 const CRTText = ({ 
   children, 
-  color = 'white',  // Default color
-  glowColor = 'rgba(255, 255, 255, 0.8)', // Default glow color
+  color = 'white',
+  glowColor = 'rgba(255, 255, 255, 0.8)',
   className = '',
-  as: Component = 'div' // Allow rendering as different elements
+  as: Component = 'div'
 }) => {
-  // Calculate the glow color based on the text color
   const getGlowColor = () => {
     if (glowColor !== 'rgba(255, 255, 255, 0.8)') return glowColor;
     switch (color.toLowerCase()) {
       case 'green':
         return 'rgba(0, 255, 0, 0.8)';
-      case 'blue':
-        return 'rgba(0, 150, 255, 0.8)';
+      case 'neon':
+        return 'rgba(45, 226, 255, 0.8)';
       case 'red':
         return 'rgba(255, 0, 0, 0.8)';
       case 'yellow':
@@ -29,25 +28,27 @@ const CRTText = ({
       style={{
         color: color,
         textShadow: `
-          0 0 2px ${getGlowColor()},
           0 0 4px ${getGlowColor()},
           0 0 8px ${getGlowColor()},
-          0 0 12px ${getGlowColor()}
+          0 0 12px ${getGlowColor()},
+          0 0 16px ${getGlowColor()},
+          0 0 20px ${getGlowColor()}
         `,
-        animation: 'textFlicker 3s linear infinite'
+        animation: 'textPulse 3s ease-in-out infinite',
+        filter: 'brightness(1.2) contrast(1.1)'
       }}
     >
       {children}
       <style jsx="true">{`
-        @keyframes textFlicker {
+        @keyframes textPulse {
           0% {
-            opacity: 1.0;
+            filter: brightness(1.2) contrast(1.1);
           }
           50% {
-            opacity: 0.95;
+            filter: brightness(1.3) contrast(1.2);
           }
           100% {
-            opacity: 1.0;
+            filter: brightness(1.2) contrast(1.1);
           }
         }
       `}</style>
