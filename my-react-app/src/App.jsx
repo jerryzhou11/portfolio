@@ -19,6 +19,7 @@ function App() {
         <Route path="/" element={<Index />} />
         <Route path="/about" element ={<About/>} />
       </Routes>
+      
       {/*<Header/>
       <Footer/>*/}
     </BrowserRouter>
