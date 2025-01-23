@@ -13,7 +13,9 @@ function HomePage(){
                 <div className="flex justify-center items-center rounded-3xl bg-purple border-2 h-[80vh] border-black max-w-[800px] m-auto relative overflow-hidden">
                     <div className="top-40 text-white font-pixelify">
                         <div className="text-5xl">
-                        <CRTText>Hi! I'm Jerry.</CRTText>
+                        <CRTText>
+                            Hi! I'm Jerry.
+                        </CRTText>
                         </div>
                         <div className="mt-20 text-3xl">
                             <CRTText.Span> Press </CRTText.Span>
