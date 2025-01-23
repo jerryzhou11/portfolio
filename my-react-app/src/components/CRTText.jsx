@@ -23,7 +23,7 @@ const CRTText = ({
 
   return (
     <Component
-      className={`relative animate-pulse-glow ${className}`}
+      className={`relative ${className}`}
       style={{
         color: color,
         textShadow: `
@@ -32,31 +32,16 @@ const CRTText = ({
           0 0 12px ${getGlowColor()},
           0 0 16px ${getGlowColor()},
           0 0 20px ${getGlowColor()}
-        `
+        `,
+        filter: 'brightness(1.2) contrast(1.1)'
       }}
     >
       {children}
-      <style jsx="true">{`
-        .animate-pulse-glow {
-          animation: pulse-glow 3s ease-in-out infinite;
-        }
-        
-        @keyframes pulse-glow {
-          0%, 100% {
-            opacity: 1;
-            filter: brightness(1.2) contrast(1.1);
-          }
-          50% {
-            opacity: 0.95;
-            filter: brightness(1.4) contrast(1.2);
-          }
-        }
-      `}</style>
     </Component>
   );
 };
 
-// Convenience components remain the same
+// Convenience components for common HTML elements
 CRTText.H1 = props => <CRTText as="h1" className="text-4xl font-bold mb-4" {...props} />;
 CRTText.H2 = props => <CRTText as="h2" className="text-3xl font-bold mb-3" {...props} />;
 CRTText.H3 = props => <CRTText as="h3" className="text-2xl font-bold mb-2" {...props} />;
