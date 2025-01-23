@@ -1,5 +1,3 @@
-import Header from './Header.jsx'
-import Footer from './Footer.jsx'
 import About from './pages/About.jsx'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
@@ -19,9 +17,6 @@ function App() {
         <Route path="/" element={<Index />} />
         <Route path="/about" element ={<About/>} />
       </Routes>
-      
-      {/*<Header/>
-      <Footer/>*/}
     </BrowserRouter>
   )
 }
