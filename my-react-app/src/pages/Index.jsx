@@ -1,8 +1,12 @@
 import HomePage from '../components/HomePage.jsx'
+import CRTScanlines from '../components/CRTScanlines.jsx';
+
 
 function Index(){
     return(
-        <HomePage/>
+        <CRTScanlines>
+            <HomePage/>
+        </CRTScanlines>
     );
 }
 
