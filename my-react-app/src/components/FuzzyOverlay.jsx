@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import React, { useState } from 'react';
 
-const FuzzyOverlay = ({ children, isEnabled = true }) => {
+const FuzzyOverlay = ({isEnabled = true }) => {
   
   return (
     <div>

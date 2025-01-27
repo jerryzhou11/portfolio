@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const CRTScanlines = ({ children, isEnabled = true }) => {
   return (
     <div className="relative min-h-screen w-full">
@@ -23,7 +24,6 @@ const CRTScanlines = ({ children, isEnabled = true }) => {
           />
           
           {/* Subtle static overlay */}
-          <div className="absolute inset-0 bg-black opacity-5" />
         </div>
       )}
 

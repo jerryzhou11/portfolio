@@ -3,7 +3,8 @@ const CRTText = ({
   color = 'white',
   glowColor = 'rgba(255, 255, 255, 0.8)',
   className = '',
-  as: Component = 'div'
+  as: Component = 'div',
+  isEnabled = true
 }) => {
   const getGlowColor = () => {
     if (glowColor !== 'rgba(255, 255, 255, 0.8)') return glowColor;
@@ -23,7 +24,7 @@ const CRTText = ({
 
   return (
     <Component
-      className={`relative ${className}`}
+      className={`relative z-30 ${className}`}
       style={{
         color: color,
         textShadow: `
