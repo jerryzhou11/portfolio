@@ -8,7 +8,6 @@ function HomePage({isEnabled = true}){
 
     return(
         <div>
-            
             <a className="block w-full" href="/about">
                 <div className="flex justify-center items-center rounded-3xl bg-purple border-2 h-[80vh] border-black max-w-[800px] m-auto relative overflow-hidden">
                     <div className="top-40 text-white font-pixelify">
