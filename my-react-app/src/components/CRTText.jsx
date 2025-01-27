@@ -22,24 +22,33 @@ const CRTText = ({
     }
   };
 
-  return (
-    <Component
-      className={`relative z-30 ${className}`}
-      style={{
-        color: color,
-        textShadow: `
-          0 0 4px ${getGlowColor()},
-          0 0 8px ${getGlowColor()},
-          0 0 12px ${getGlowColor()},
-          0 0 16px ${getGlowColor()},
-          0 0 20px ${getGlowColor()}
-        `,
-        filter: 'brightness(1.2) contrast(1.1)'
-      }}
-    >
-      {children}
-    </Component>
-  );
+  if (isEnabled){
+    return (
+      <Component
+        className={`relative z-30 ${className}`}
+        style={{
+          color: color,
+          textShadow: `
+            0 0 4px ${getGlowColor()},
+            0 0 8px ${getGlowColor()},
+            0 0 12px ${getGlowColor()},
+            0 0 16px ${getGlowColor()},
+            0 0 20px ${getGlowColor()}
+          `,
+          filter: 'brightness(1.2) contrast(1.1)'
+        }}
+      >
+        {children}
+      </Component>
+    );
+  }else{
+    return(
+      <Component className={className} style={{color: color}}>
+        {children}
+      </Component>
+    );
+  }
+  
 };
 
 // Convenience components for common HTML elements

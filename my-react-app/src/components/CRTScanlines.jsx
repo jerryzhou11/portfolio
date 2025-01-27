@@ -18,12 +18,11 @@ const CRTScanlines = ({ children, isEnabled = true }) => {
             style={{
               background: 'linear-gradient(to bottom, transparent 0%, transparent 50%, rgb(0, 0, 0) 50%, rgb(0, 0, 0) 100%)',
               backgroundSize: '100% 4px',
-              animation: 'scanlineMove 6s linear infinite',
+              animation: 'scanlineMove 1s linear infinite',
               opacity: 0.3,
             }}
           />
           
-          {/* Subtle static overlay */}
         </div>
       )}
 
