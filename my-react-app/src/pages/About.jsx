@@ -1,11 +1,19 @@
+import CRTScanlines from '../components/CRTScanlines.jsx';
+import ArcadeMachine from '../components/ArcadeMachine.jsx';
+import CRTText from '../components/CRTText.jsx';
 
-function About(){
+function About({enableEffects=true}){
 
     return(
-        <div>
-            <h1>About</h1>
-            <p>This is the about page</p>
-        </div>
+        <CRTScanlines isEnabled={enableEffects}>
+            <ArcadeMachine isEnabled={enableEffects}>
+                <div className="text-5xl">
+                    <CRTText isEnabled={enableEffects}>
+                        About Page
+                    </CRTText>
+                </div>
+            </ArcadeMachine>
+        </CRTScanlines>
     );
 }
 

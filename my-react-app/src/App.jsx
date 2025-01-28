@@ -1,6 +1,5 @@
 import About from './pages/About.jsx'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import Index from './pages/Index.jsx'
 
 import './App.css'
