@@ -9,7 +9,7 @@ function About({enableEffects=true}){
             <ArcadeMachine isEnabled={enableEffects}>
                 <div className="text-5xl">
                     <CRTText isEnabled={enableEffects}>
-                        About Page
+                       I'm a <CRTText.Span color="neon" className="text-neon" isEnabled={enableEffects}> developer. </CRTText.Span>
                     </CRTText>
                 </div>
             </ArcadeMachine>
