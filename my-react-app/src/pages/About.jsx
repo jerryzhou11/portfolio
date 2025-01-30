@@ -14,7 +14,7 @@ function About({enableEffects=true}){
             <ArcadeMachine isEnabled={enableEffects}>
                 <div className="text-5xl">
                     <CRTText isEnabled={enableEffects}>
-                       I'm a <CRTText.Span color="neon" className="text-neon" isEnabled={enableEffects}> developer. </CRTText.Span>
+                       I'm a <CRTText.Span color="neon" className="text-neon underline" isEnabled={enableEffects}> developer. </CRTText.Span>
                     </CRTText>
                 </div>
                 <div className="mt-10 flex flex-row gap-10">
