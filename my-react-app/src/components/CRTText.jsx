@@ -40,13 +40,13 @@ const CRTText = ({
         style={{
           color: color,
           textShadow: `
-            0 0 4px currentColor,
-            0 0 8px currentColor,
-            0 0 12px currentColor,
-            0 0 16px currentColor,
-            0 0 20px currentColor
+            0 0 2px currentColor,
+            0 0 6px currentColor,
+            0 0 10px currentColor,
+            0 0 14px currentColor,
+            0 0 18px currentColor
           `,
-          filter: 'brightness(1.1) contrast(1.1)'
+          filter: 'brightness(1) contrast(1.1)'
         }}
       >
         {children}
