@@ -4,11 +4,15 @@ const CRTText = ({
   glowColor = 'rgba(255, 255, 255, 0.8)',
   className = '',
   as: Component = 'div',
-  isEnabled = true
+  isEnabled = true 
 }) => {
   const getGlowColor = () => {
     if (glowColor !== 'rgba(255, 255, 255, 0.8)') return glowColor;
-    switch (color.toLowerCase()) {
+    // Get the computed color if using hover states
+    const computedColor = color.startsWith('#') ? color : // Handle hex colors
+      color === 'neon' ? '#2DE2FF' : color; // Handle named colors
+      
+    switch (computedColor.toLowerCase()) {
       case 'green':
         return 'rgba(0, 255, 0, 0.8)';
       case 'neon':
@@ -18,37 +22,43 @@ const CRTText = ({
       case 'yellow':
         return 'rgba(255, 255, 0, 0.8)';
       default:
+        if (computedColor.startsWith('#')) {
+          // Convert hex to rgba
+          const r = parseInt(computedColor.slice(1, 3), 16);
+          const g = parseInt(computedColor.slice(3, 5), 16);
+          const b = parseInt(computedColor.slice(5, 7), 16);
+          return `rgba(${r}, ${g}, ${b}, 0.8)`;
+        }
         return 'rgba(255, 255, 255, 0.8)';
     }
   };
 
-  if (isEnabled){
+  if (isEnabled) {
     return (
       <Component
         className={`relative z-30 ${className}`}
         style={{
           color: color,
           textShadow: `
-            0 0 4px ${getGlowColor()},
-            0 0 8px ${getGlowColor()},
-            0 0 12px ${getGlowColor()},
-            0 0 16px ${getGlowColor()},
-            0 0 20px ${getGlowColor()}
+            0 0 4px currentColor,
+            0 0 8px currentColor,
+            0 0 12px currentColor,
+            0 0 16px currentColor,
+            0 0 20px currentColor
           `,
-          filter: 'brightness(1.2) contrast(1.1)'
+          filter: 'brightness(1.1) contrast(1.1)'
         }}
       >
         {children}
       </Component>
     );
-  }else{
-    return(
+  } else {
+    return (
       <Component className={className} style={{color: color}}>
         {children}
       </Component>
     );
   }
-  
 };
 
 // Convenience components for common HTML elements

@@ -9,7 +9,9 @@ export default {
       },
       colors:{
         'purple': '#2E2157',
-        'neon': '#2DE2E6'
+        'neon': '#2DE2E6',
+        'electric': '#0496FF',
+        'pink': '#FF00FF',
       },
     },
   },
