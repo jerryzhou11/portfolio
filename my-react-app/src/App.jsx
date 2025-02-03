@@ -9,7 +9,7 @@ function App() {
   const enableEffects = true;
 
   return(
-    <BrowserRouter basename="">
+    <BrowserRouter basename="portfolio">
     {/*<nav>
       <Link to="/">Home</Link>
       <Link to="/about">About</Link>
