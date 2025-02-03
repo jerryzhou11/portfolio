@@ -13,16 +13,15 @@ function About({enableEffects=true}){
             <ArcadeMachine isEnabled={enableEffects}>
                 <div className="text-5xl">
                     <CRTText isEnabled={enableEffects}>
-                       I &nbsp;
-                       <Link to="/">
+                       I design &nbsp;
+                       <Link to="/stories">
                         <CRTText.Span color="neon" className="transition-colors duration-300  text-neon hover:text-pink underline" isEnabled={enableEffects}> 
-                            build
+                            interactions.
                          </CRTText.Span>
                         </Link>
-                        &nbsp; things.
                     </CRTText>
                 </div>
-                <div className="mt-10 flex flex-row gap-20">
+                <div className="mt-10 flex flex-row gap-20 justify-center">
                     <ProjectWrapper name="Lizard's Legacy" enableEffects={enableEffects} link="https://stolenquotient2.itch.io/lizard-legacy">
                         <img src={lizard} alt="Lizard's Legacy" width="50"/>
                     </ProjectWrapper>
