@@ -1,19 +1,20 @@
 import Footer from './Footer.jsx'
 import FuzzyOverlay from '../components/FuzzyOverlay.jsx'
+import { Link } from 'react-router-dom';
 
 
 function ArcadeMachine({children, isEnabled = true, link}){
 
     return(
         <div>
-            <a className="block w-full" href={link}>
+            <Link to={link} className="block w-full" >
                 <div className="flex justify-center items-center rounded-3xl bg-purple border-2 h-[80vh] border-black max-w-[800px] m-auto relative overflow-hidden">
                     <div className="top-40 text-white font-pixelify">
                         {children}
                     </div>
                     <FuzzyOverlay isEnabled={isEnabled}/>
                 </div>
-            </a>
+            </Link>
             <div className="text-gray-800"><Footer/></div>
         </div>
     );

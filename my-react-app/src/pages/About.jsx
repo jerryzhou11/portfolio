@@ -1,11 +1,10 @@
 import CRTScanlines from '../components/CRTScanlines.jsx';
 import ArcadeMachine from '../components/ArcadeMachine.jsx';
-import LizardLegacy from '../components/LizardLegacy.jsx';
 import CRTText from '../components/CRTText.jsx';
 import ProjectWrapper from '../components/ProjectWrapper.jsx';
 import lizard from '../assets/lizard.gif'
 import temp from '../assets/react.svg'
-
+import { Link } from 'react-router-dom';
 
 function About({enableEffects=true}){
 
@@ -14,12 +13,13 @@ function About({enableEffects=true}){
             <ArcadeMachine isEnabled={enableEffects}>
                 <div className="text-5xl">
                     <CRTText isEnabled={enableEffects}>
-                       I'm a &nbsp;
-                       <a href=""> 
+                       I &nbsp;
+                       <Link to="/">
                         <CRTText.Span color="neon" className="transition-colors duration-300  text-neon hover:text-pink underline" isEnabled={enableEffects}> 
-                            developer.
+                            build
                          </CRTText.Span>
-                        </a>
+                        </Link>
+                        &nbsp; things.
                     </CRTText>
                 </div>
                 <div className="mt-10 flex flex-row gap-20">
