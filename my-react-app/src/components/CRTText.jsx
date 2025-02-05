@@ -43,8 +43,7 @@ const CRTText = ({
             0 0 2px currentColor,
             0 0 6px currentColor,
             0 0 10px currentColor,
-            0 0 14px currentColor,
-            0 0 18px currentColor
+            0 0 12px currentColor
           `,
           filter: 'brightness(1) contrast(1.1)'
         }}
