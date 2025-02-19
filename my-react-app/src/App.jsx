@@ -1,5 +1,5 @@
 import About from './pages/About.jsx'
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import Index from './pages/Index.jsx'
 import Stories from './pages/Stories.jsx'
 
@@ -9,7 +9,7 @@ function App() {
   const enableEffects = true;
 
   return(
-    <BrowserRouter basename="portfolio">
+    <HashRouter>
     {/*<nav>
       <Link to="/">Home</Link>
       <Link to="/about">About</Link>
@@ -19,7 +19,7 @@ function App() {
         <Route path="/about" element ={<About enableEffects={enableEffects}/>} />
         <Route path="/stories" element={<Stories enableEffects={enableEffects}/>} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
