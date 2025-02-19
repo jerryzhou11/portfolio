@@ -1,9 +1,8 @@
 import React from 'react';
 
-
 const CRTScanlines = ({ children, isEnabled = true }) => {
   return (
-    <div className="relative min-h-screen w-full">
+    <div className="relative min-h-fit w-full">
       {/* Content Container */}
       <div className="relative z-10">
         {children}

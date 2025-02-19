@@ -5,11 +5,14 @@ import ArcadeMachine from '../components/ArcadeMachine.jsx';
 
 function Index({enableEffects = true}){
     return(
+        <div>
         <CRTScanlines isEnabled={enableEffects}>
             <ArcadeMachine isEnabled={enableEffects} link="/about">
                 <HomeContent isEnabled={enableEffects}/>
             </ArcadeMachine>
         </CRTScanlines>
+        </div>
+
     );
 }
 
