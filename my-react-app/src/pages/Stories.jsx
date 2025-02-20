@@ -25,7 +25,7 @@ function Stories({enableEffects=true}){
                     <ProjectWrapper name="News Reporting" enableEffects={enableEffects} link="https://dailynorthwestern.com/2024/10/09/city/animal-records-vinyl-store-opens-in-evanston/">
                         <img src={news} alt="Newspaper Icon" width="70"/>
                     </ProjectWrapper>
-                    <ProjectWrapper name="Video Stories" enableEffects={enableEffects} link="">
+                    <ProjectWrapper name="Video Journalism" enableEffects={enableEffects} link="https://www.youtube.com/playlist?list=PL_WrJLUaaNBcwWu6RRHy18aKSnK0z3Cwo">
                         <img src={video} alt="Camera Icon" width="70"/>
                     </ProjectWrapper>
                 </div>
