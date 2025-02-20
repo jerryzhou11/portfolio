@@ -2,7 +2,6 @@ import CRTScanlines from '../components/CRTScanlines.jsx';
 import ArcadeMachine from '../components/ArcadeMachine.jsx';
 import CRTText from '../components/CRTText.jsx';
 import { Link } from 'react-router-dom';
-import temp from '../assets/react.svg'
 import ProjectWrapper from '../components/ProjectWrapper.jsx';
 import news from '../assets/news.png';
 import video from '../assets/video.png';
