@@ -46,7 +46,7 @@ const GlitchTransition = ({ children, trigger, enableEffects=true}) => {
           {protrusions.map((p, i) => (
             <div
               key={i}
-              className="absolute bg-white opacity-30"
+              className="absolute bg-white opacity-50"
               style={{
                 width: `${p.width}px`,
                 height: `${p.height}px`,
