@@ -14,7 +14,6 @@ export default {
         'pink': '#FF00FF',
       },
       keyframes: {
-        // Keep static-up and static-down the same
         'static-up': {
           '0%': { transform: 'translateY(0)' },
           '100%': { transform: 'translateY(-150px)' }
