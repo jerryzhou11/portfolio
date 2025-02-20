@@ -4,6 +4,8 @@ import CRTText from '../components/CRTText.jsx';
 import { Link } from 'react-router-dom';
 import temp from '../assets/react.svg'
 import ProjectWrapper from '../components/ProjectWrapper.jsx';
+import news from '../assets/news.png';
+import video from '../assets/video.png';
 
 function Stories({enableEffects=true}){
     return(
@@ -20,11 +22,11 @@ function Stories({enableEffects=true}){
                     </CRTText>
                 </div>
                 <div className="mt-10 flex flex-row gap-20 justify-center">
-                    <ProjectWrapper name="News Reporting" enableEffects={enableEffects} link="https://stolenquotient2.itch.io/lizard-legacy">
-                        <img src={temp} alt="Lizard Icon" width="70"/>
+                    <ProjectWrapper name="News Reporting" enableEffects={enableEffects} link="https://dailynorthwestern.com/2024/10/09/city/animal-records-vinyl-store-opens-in-evanston/">
+                        <img src={news} alt="Newspaper Icon" width="70"/>
                     </ProjectWrapper>
                     <ProjectWrapper name="Video Stories" enableEffects={enableEffects} link="">
-                        <img src={temp} alt="Placeholder" width="70"/>
+                        <img src={video} alt="Camera Icon" width="70"/>
                     </ProjectWrapper>
                 </div>
             </ArcadeMachine>

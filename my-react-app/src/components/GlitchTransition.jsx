@@ -26,8 +26,8 @@ const GlitchTransition = ({ children, trigger, enableEffects=true}) => {
 
   const StaticLine = ({ top, duration, delay }) => {
     const protrusions = Array.from({ length: 35 }).map((_, i) => ({
-      width: Math.floor(Math.random() * 30 + 10),
-      height: Math.floor(Math.random() * 5 + 2),
+      width: Math.floor(Math.random() * 400 + 10),
+      height: Math.floor(Math.random() * 7 + 2),
       offset: Math.floor(Math.random() * 12 - 6),
       position: Math.floor(Math.random() * 100),
       above: Math.random() > 0.5
@@ -46,7 +46,7 @@ const GlitchTransition = ({ children, trigger, enableEffects=true}) => {
           {protrusions.map((p, i) => (
             <div
               key={i}
-              className="absolute bg-white opacity-50"
+              className="absolute bg-white opacity-30"
               style={{
                 width: `${p.width}px`,
                 height: `${p.height}px`,
