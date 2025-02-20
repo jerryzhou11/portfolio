@@ -25,22 +25,22 @@ export default {
         'glitch-copy-1': {
           '0%': { 
             transform: 'translate(0)',
-            opacity: 0.5,
+            opacity: 0.7,
             filter: 'hue-rotate(90deg)'
           },
           '33%': { 
             transform: 'translate(-18px, 15px)',
-            opacity: 0.5,
+            opacity: 0.7,
             filter: 'hue-rotate(90deg)'
           },
           '66%': { 
             transform: 'translate(18px, -15px)',
-            opacity: 0.5,
+            opacity: 0.7,
             filter: 'hue-rotate(90deg)'
           },
           '100%': { 
             transform: 'translate(0)',
-            opacity: 0.5,
+            opacity: 0.7,
             filter: 'hue-rotate(90deg)'
           }
         },
@@ -69,22 +69,22 @@ export default {
         'glitch-copy-3': {
           '0%': { 
             transform: 'translate(0)',
-            opacity: 0.5,
+            opacity: 0.3,
             filter: 'hue-rotate(270deg)'
           },
           '33%': { 
             transform: 'translate(-15px, -18px)',
-            opacity: 0.5,
+            opacity: 0.3,
             filter: 'hue-rotate(270deg)'
           },
           '66%': { 
             transform: 'translate(15px, 18px)',
-            opacity: 0.5,
+            opacity: 0.3,
             filter: 'hue-rotate(270deg)'
           },
           '100%': { 
             transform: 'translate(0)',
-            opacity: 0.5,
+            opacity: 0.3,
             filter: 'hue-rotate(270deg)'
           }
         }
