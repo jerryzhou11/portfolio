@@ -23,10 +23,10 @@ function About({enableEffects=true}){
                 </div>
                 <div className="mt-10 flex flex-row gap-20 justify-center">
                     <ProjectWrapper name="Lizard's Legacy" enableEffects={enableEffects} link="https://stolenquotient2.itch.io/lizard-legacy">
-                        <img src={lizard} alt="Lizard's Legacy" width="50" className="hover:brightness-125"/>
+                        <img src={lizard} alt="Lizard's Legacy" width="50"/>
                     </ProjectWrapper>
                     <ProjectWrapper name="Coming Soon!" enableEffects={enableEffects} link="">
-                        <img src={temp} alt="Placeholder" width="70" className="hover:brightness-125"/>
+                        <img src={temp} alt="Placeholder" width="70"/>
                     </ProjectWrapper>
                 </div>
             </ArcadeMachine>
