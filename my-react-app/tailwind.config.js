@@ -14,22 +14,76 @@ export default {
         'pink': '#FF00FF',
       },
       keyframes: {
-        'line-shift': {
-          '0%': { transform: 'translateX(-100%)' },
-          '100%': { transform: 'translateX(100%)' }
+        // Keep static-up and static-down the same
+        'static-up': {
+          '0%': { transform: 'translateY(0)' },
+          '100%': { transform: 'translateY(-150px)' }
         },
-        'line-jump': {
-          '0%': { transform: 'translateX(-100%)' },
-          '45%': { transform: 'translateX(-20%)' },
-          '45.1%': { transform: 'translateX(-20%) translateY(0px)' },
-          '45.2%': { transform: 'translateX(-20%) translateY(120px)' },
-          '45.3%': { transform: 'translateX(-20%) translateY(120px)' },
-          '100%': { transform: 'translateX(100%) translateY(120px)' }
+        'static-down': {
+          '0%': { transform: 'translateY(0)' },
+          '100%': { transform: 'translateY(150px)' }
+        },
+        'glitch-copy-1': {
+          '0%': { 
+            transform: 'translate(0)',
+            opacity: 0.5
+          },
+          '33%': { 
+            transform: 'translate(-18px, 15px)',
+            opacity: 0.5
+          },
+          '66%': { 
+            transform: 'translate(18px, -15px)',
+            opacity: 0.5
+          },
+          '100%': { 
+            transform: 'translate(0)',
+            opacity: 0.5
+          }
+        },
+        'glitch-copy-2': {
+          '0%': { 
+            transform: 'translate(0)',
+            opacity: 0.5
+          },
+          '33%': { 
+            transform: 'translate(18px, 18px)',
+            opacity: 0.5
+          },
+          '66%': { 
+            transform: 'translate(-18px, -13px)',
+            opacity: 0.5
+          },
+          '100%': { 
+            transform: 'translate(0)',
+            opacity: 0.5
+          }
+        },
+        'glitch-copy-3': {
+          '0%': { 
+            transform: 'translate(0)',
+            opacity: 0.5
+          },
+          '33%': { 
+            transform: 'translate(-15px, -18px)',
+            opacity: 0.5
+          },
+          '66%': { 
+            transform: 'translate(15px, 18px)',
+            opacity: 0.5
+          },
+          '100%': { 
+            transform: 'translate(0)',
+            opacity: 0.5
+          }
         }
       },
       animation: {
-        'line-shift': 'line-shift 150ms linear',
-        'line-jump': 'line-jump 150ms linear'
+        'static-up': 'static-up 150ms linear',
+        'static-down': 'static-down 150ms linear',
+        'glitch-copy-1': 'glitch-copy-1 400ms steps(2, jump-none)',
+        'glitch-copy-2': 'glitch-copy-2 400ms steps(2, jump-none)',
+        'glitch-copy-3': 'glitch-copy-3 400ms steps(2, jump-none)'
       }
     },
   },

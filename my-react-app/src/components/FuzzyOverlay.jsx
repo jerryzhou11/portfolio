@@ -23,7 +23,7 @@ const FuzzyOverlay = ({isEnabled = true }) => {
         backgroundImage: 'url("/portfolio/black-noise.png")',
         // backgroundImage: 'url("/noise.png")',
       }}
-      className="pointer-events-none absolute -inset-[200%] opacity-[15%]"
+      className="pointer-events-none absolute -inset-[200%] opacity-[10%]"
     />)}
     </div>
   );
