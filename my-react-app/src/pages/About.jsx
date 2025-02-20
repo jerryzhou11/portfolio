@@ -25,7 +25,7 @@ function About({enableEffects=true}){
                     <ProjectWrapper name="Lizard's Legacy" enableEffects={enableEffects} link="https://stolenquotient2.itch.io/lizard-legacy">
                         <img src={lizard} alt="Lizard's Legacy" width="50"/>
                     </ProjectWrapper>
-                    <ProjectWrapper name="News Redesign" enableEffects={enableEffects} link="">
+                    <ProjectWrapper name="Coming Soon!" enableEffects={enableEffects} link="">
                         <img src={temp} alt="Placeholder" width="70"/>
                     </ProjectWrapper>
                 </div>

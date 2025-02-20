@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const GlitchTransition = ({ children, trigger }) => {
+const GlitchTransition = ({ children, trigger, enableEffects=true}) => {
   const [displayedChildren, setDisplayedChildren] = useState(children);
   const [isGlitching, setIsGlitching] = useState(false);
   const [moveDirection, setMoveDirection] = useState('up');
@@ -59,7 +59,13 @@ const GlitchTransition = ({ children, trigger }) => {
       </div>
     );
   };
-
+  if(!enableEffects){
+    return(
+      <>
+        {children}
+      </>
+    );
+  }
   return (
     <>
       {/* Container for content and glitch effects */}
