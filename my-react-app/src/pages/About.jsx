@@ -3,6 +3,7 @@ import ArcadeMachine from '../components/ArcadeMachine.jsx';
 import CRTText from '../components/CRTText.jsx';
 import ProjectWrapper from '../components/ProjectWrapper.jsx';
 import lizard from '../assets/lizard.gif'
+import leaf from '../assets/leaf.png'
 import temp from '../assets/react.svg'
 import { Link } from 'react-router-dom';
 
@@ -23,7 +24,10 @@ function About({enableEffects=true}){
                 </div>
                 <div className="mt-10 flex flex-row gap-20 justify-center">
                     <ProjectWrapper name="Lizard's Legacy" enableEffects={enableEffects} link="https://stolenquotient2.itch.io/lizard-legacy">
-                        <img src={lizard} alt="Lizard's Legacy" width="50"/>
+                        <img src={lizard} alt="Lizard Icon" width="50"/>
+                    </ProjectWrapper>
+                    <ProjectWrapper name="Leaving Lightly" enableEffects={enableEffects} link="">
+                        <img src={leaf} alt="Leaf Icon" width="70"/>
                     </ProjectWrapper>
                     <ProjectWrapper name="Coming Soon!" enableEffects={enableEffects} link="">
                         <img src={temp} alt="Placeholder" width="70"/>
