@@ -13,7 +13,7 @@ function Art({enableEffects=true}){
                  <div className="text-5xl">
                     <CRTText isEnabled={enableEffects}>
                         I write, &nbsp;
-                        <Link to="/">
+                        <Link to="/contact">
                             <CRTText.Span color="neon" className="transition-colors duration-300  text-neon hover:text-pink underline" isEnabled={enableEffects}> 
                                 art?
                             </CRTText.Span>

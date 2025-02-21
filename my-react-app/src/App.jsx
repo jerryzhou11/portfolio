@@ -4,6 +4,7 @@ import Index from './pages/Index.jsx'
 import Stories from './pages/Stories.jsx'
 import Footer from './components/Footer.jsx'
 import Art from './pages/Art.jsx'
+import Contact from './pages/Contact.jsx'
 import './App.css'
 import React, {useState} from 'react';
 
@@ -21,10 +22,11 @@ function UnWrappedApp() {
           <Route path="/interactions" element ={<About enableEffects={enableEffects}/>} />
           <Route path="/stories" element={<Stories enableEffects={enableEffects}/>} />
           <Route path="/art" element={<Art enableEffects={enableEffects}/>} />
+          <Route path="/contact" element={<Contact enableEffects={enableEffects}/>} />
         </Routes>
       <Footer/>
       <button 
-          className="fixed z-20 bottom-4 left-1/2 transform -translate-x-1/2 p-2 bg-black text-gray-700 rounded-lg"
+          className="fixed z-20 bottom-1 left-1/2 transform -translate-x-1/2 p-2 bg-black text-gray-700 rounded-lg"
           onClick={toggleEffects}
         >
           {enableEffects ? 'Disable Effects' : 'Enable Effects'}
