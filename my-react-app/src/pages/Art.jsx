@@ -3,29 +3,26 @@ import ArcadeMachine from '../components/ArcadeMachine.jsx';
 import CRTText from '../components/CRTText.jsx';
 import { Link } from 'react-router-dom';
 import ProjectWrapper from '../components/ProjectWrapper.jsx';
-import news from '../assets/news.png';
-import video from '../assets/video.png';
+import quill from '../assets/quill.png';
+import lizard from '../assets/lizard.gif';
 
-function Stories({enableEffects=true}){
+function Art({enableEffects=true}){
     return(
         <CRTScanlines isEnabled={enableEffects}>
             <ArcadeMachine isEnabled={enableEffects}>
                  <div className="text-5xl">
                     <CRTText isEnabled={enableEffects}>
-                        I tell &nbsp;
-                        <Link to="/art">
+                        I write, &nbsp;
+                        <Link to="/">
                             <CRTText.Span color="neon" className="transition-colors duration-300  text-neon hover:text-pink underline" isEnabled={enableEffects}> 
-                                stories.
+                                art?
                             </CRTText.Span>
                         </Link>
                     </CRTText>
                 </div>
-                <div className="mt-10 flex flex-row gap-20 justify-center">
-                    <ProjectWrapper name="News Reporting" enableEffects={enableEffects} link="https://dailynorthwestern.com/2024/10/09/city/animal-records-vinyl-store-opens-in-evanston/">
-                        <img src={news} alt="Newspaper Icon" width="70"/>
-                    </ProjectWrapper>
-                    <ProjectWrapper name="Video Journalism" enableEffects={enableEffects} link="https://www.youtube.com/playlist?list=PL_WrJLUaaNBcwWu6RRHy18aKSnK0z3Cwo">
-                        <img src={video} alt="Camera Icon" width="70"/>
+                <div className="mt-10 flex flex-row gap-10 justify-center">
+                    <ProjectWrapper name="My poetry collection" enableEffects={enableEffects} link="https://dailynorthwestern.com/2024/10/09/city/animal-records-vinyl-store-opens-in-evanston/">
+                        <img src={quill} alt="Quill Icon" width="80"/>
                     </ProjectWrapper>
                 </div>
             </ArcadeMachine>
@@ -33,4 +30,4 @@ function Stories({enableEffects=true}){
     );
 }
 
-export default Stories
+export default Art
