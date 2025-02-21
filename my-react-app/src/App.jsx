@@ -1,4 +1,4 @@
-import About from './pages/About.jsx'
+import Interactions from './pages/Interactions.jsx'
 import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Index from './pages/Index.jsx'
 import Stories from './pages/Stories.jsx'
@@ -19,7 +19,7 @@ function UnWrappedApp() {
       <div>      
         <Routes>
           <Route path="/" element={<Index enableEffects={enableEffects}/>} />
-          <Route path="/interactions" element ={<About enableEffects={enableEffects}/>} />
+          <Route path="/interactions" element ={<Interactions enableEffects={enableEffects}/>} />
           <Route path="/stories" element={<Stories enableEffects={enableEffects}/>} />
           <Route path="/art" element={<Art enableEffects={enableEffects}/>} />
           <Route path="/contact" element={<Contact enableEffects={enableEffects}/>} />

@@ -7,7 +7,7 @@ import leaf from '../assets/leaf.png'
 import temp from '../assets/react.svg'
 import { Link } from 'react-router-dom';
 
-function About({enableEffects=true}){
+function Interactions({enableEffects=true}){
 
     return(
         <CRTScanlines isEnabled={enableEffects}>
@@ -26,7 +26,7 @@ function About({enableEffects=true}){
                     <ProjectWrapper name="Lizard's Legacy" enableEffects={enableEffects} link="https://stolenquotient2.itch.io/lizard-legacy">
                         <img src={lizard} alt="Lizard Icon" width="50"/>
                     </ProjectWrapper>
-                    <ProjectWrapper name="Leaving Lightly" enableEffects={enableEffects} link="">
+                    <ProjectWrapper name="Leaving Lightly" enableEffects={enableEffects} link="404">
                         <img src={leaf} alt="Leaf Icon" width="70"/>
                     </ProjectWrapper>
                     <ProjectWrapper name="Coming Soon!" enableEffects={enableEffects} link="">
@@ -38,4 +38,4 @@ function About({enableEffects=true}){
     );
 }
 
-export default About
+export default Interactions

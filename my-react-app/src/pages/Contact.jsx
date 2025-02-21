@@ -25,7 +25,7 @@ function Contact({enableEffects=true}){
                     </CRTText>
                 </div>
                 <div className="text-3xl mt-10 flex flex-row gap-10 justify-center">
-                    <InternalCRTLink enableEffects={enableEffects} link="/interactions">Code</InternalCRTLink>
+                    <InternalCRTLink enableEffects={enableEffects} link="/interactions">Design</InternalCRTLink>
                     <InternalCRTLink enableEffects={enableEffects} link="/stories">Stories</InternalCRTLink>
                     <InternalCRTLink enableEffects={enableEffects} link="/art">Art</InternalCRTLink>
                 </div>
