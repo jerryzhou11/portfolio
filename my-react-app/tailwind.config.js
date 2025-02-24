@@ -5,7 +5,8 @@ export default {
     extend: {
       fontFamily: {
         "pixelify": ['Pixelify Sans', 'serif'],
-        "chomsky": ['Chomsky', 'sans-serif']
+        "chomsky": ['Chomsky', 'sans-serif'],
+        "VT": ['VT323', 'serif']
       },
       colors:{
         'purple': '#2E2157',
