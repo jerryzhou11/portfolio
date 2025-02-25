@@ -26,7 +26,7 @@ function UnWrappedApp() {
         </Routes>
       <Footer/>
       <button 
-          className="fixed z-20 bottom-1 left-1/2 transform -translate-x-1/2 p-2 bg-black text-gray-700 rounded-lg"
+          className="fixed z-20 bottom-1 left-1/2 transform -translate-x-1/2 p-2 bg-black text-gray-300 rounded-lg"
           onClick={toggleEffects}
         >
           {enableEffects ? 'Disable Effects' : 'Enable Effects'}
