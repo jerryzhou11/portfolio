@@ -26,11 +26,8 @@ function Interactions({enableEffects=true}){
                     <ProjectWrapper name="Lizard's Legacy" enableEffects={enableEffects} link="https://stolenquotient2.itch.io/lizard-legacy">
                         <img src={lizard} alt="Lizard Icon" width="50"/>
                     </ProjectWrapper>
-                    <ProjectWrapper name="Leaving Lightly" enableEffects={enableEffects} link="404">
+                    <ProjectWrapper name="Coming Soon!" enableEffects={enableEffects} link="404">
                         <img src={leaf} alt="Leaf Icon" width="70"/>
-                    </ProjectWrapper>
-                    <ProjectWrapper name="Coming Soon!" enableEffects={enableEffects} link="">
-                        <img src={temp} alt="Placeholder" width="70"/>
                     </ProjectWrapper>
                 </div>
             </ArcadeMachine>
