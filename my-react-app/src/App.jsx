@@ -16,7 +16,7 @@ function UnWrappedApp() {
   };
 
   return(
-      <div>      
+      <div>
         <Routes>
           <Route path="/" element={<Index enableEffects={enableEffects}/>} />
           <Route path="/interactions" element ={<Interactions enableEffects={enableEffects}/>} />
