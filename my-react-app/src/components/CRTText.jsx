@@ -60,11 +60,11 @@ const CRTText = ({
   }
 };
 
-// Convenience components for common HTML elements
-CRTText.H1 = props => <CRTText as="h1" className="text-4xl font-bold mb-4" {...props} />;
-CRTText.H2 = props => <CRTText as="h2" className="text-3xl font-bold mb-3" {...props} />;
-CRTText.H3 = props => <CRTText as="h3" className="text-2xl font-bold mb-2" {...props} />;
-CRTText.P = props => <CRTText as="p" className="text-base mb-4" {...props} />;
+// Convenience components for common HTML elements with responsive text sizes
+CRTText.H1 = props => <CRTText as="h1" className="text-4xl md:text-5xl font-bold mb-4" {...props} />;
+CRTText.H2 = props => <CRTText as="h2" className="text-xl sm:text-2xl md:text-3xl font-bold mb-3" {...props} />;
+CRTText.H3 = props => <CRTText as="h3" className="text-lg sm:text-xl md:text-2xl font-bold mb-2" {...props} />;
+CRTText.P = props => <CRTText as="p" className="text-sm sm:text-base mb-4" {...props} />;
 CRTText.Span = props => <CRTText as="span" {...props} />;
 
 export default CRTText;
