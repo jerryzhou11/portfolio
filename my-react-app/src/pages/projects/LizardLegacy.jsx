@@ -6,21 +6,21 @@ import InternalCRTLink from '../../components/InternalCRTLink';
 function LizardLegacy({ enableEffects }) {
   return (
     <ArcadeMachine isEnabled={enableEffects}>
-      <div className="p-8">
-        <CRTText isEnabled={enableEffects} className="text-4xl mb-6">
+      <div className="w-full px-2 sm:px-4 md:px-8">
+        <CRTText isEnabled={enableEffects} className="text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6">
           Lizard's Legacy
         </CRTText>
         
-        <div className="text-left mb-8">
-          <CRTText isEnabled={enableEffects} className="mb-4">
+        <div className="text-left mb-6 sm:mb-8 text-sm sm:text-base">
+          <CRTText isEnabled={enableEffects} className="mb-2 sm:mb-4">
             {/* You can populate this content later */}
             Project description goes here...
           </CRTText>
           
-          <CRTText isEnabled={enableEffects} className="mb-4">
+          <CRTText isEnabled={enableEffects} className="mb-2 sm:mb-4">
             Technologies used:
           </CRTText>
-          <ul className="list-disc list-inside mb-4">
+          <ul className="list-disc list-inside mb-2 sm:mb-4">
             <li>
               <CRTText.Span isEnabled={enableEffects}>
                 Godot Engine

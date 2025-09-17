@@ -6,10 +6,10 @@ import CRTScreen from '../components/CRTScreen.jsx';
 
 function Machine({children, isEnabled}){
     return(
-        <div className="block w-full overflow-hidden">
-            <div className="flex justify-center items-center rounded-3xl bg-purple border-2 min-h-[60vh] h-[80vh] max-h-[90vh] border-black max-w-[800px] m-auto relative overflow-hidden p-4 sm:p-6 md:p-8">
+        <div className="block w-full overflow-hidden px-2 sm:px-4">
+            <div className="flex justify-center items-center rounded-3xl bg-purple border-2 min-h-[50vh] sm:min-h-[60vh] h-[70vh] sm:h-[80vh] max-h-[85vh] sm:max-h-[90vh] border-black max-w-[95vw] sm:max-w-[800px] m-auto relative overflow-hidden p-2 sm:p-4 md:p-6 lg:p-8">
                 <GlitchTransition enableEffects={isEnabled} trigger={location.pathname}>
-                    <div className="text-white font-pixelify">
+                    <div className="text-white font-pixelify w-full text-center">
                         {children}
                     </div>
                 </GlitchTransition>

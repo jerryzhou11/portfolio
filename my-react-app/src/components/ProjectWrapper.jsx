@@ -6,11 +6,11 @@ function ProjectWrapper({children, name, enableEffects=true, link}){
 
     return (
         //Outer container with fixed height
-        <div className="flex flex-col">
+        <div className="flex flex-col items-center">
             
-            <a className="flex flex-col items-center transform hover:brightness-150 hover:scale-110" href={link} target="_blank" onMouseEnter={() => setIsHovered(true)}
+            <a className="flex flex-col items-center transform hover:brightness-150 hover:scale-105 sm:hover:scale-110 transition-transform duration-200" href={link} target="_blank" onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}>
-                <div className="text-xl h-6 mb-4 ">
+                <div className="text-base sm:text-lg md:text-xl h-5 sm:h-6 mb-2 sm:mb-4 text-center">
                     <div className={`${isHovered ? 'opacity-100' : 'opacity-0'}`}>
                         <CRTText isEnabled={enableEffects}>
                            {name}
