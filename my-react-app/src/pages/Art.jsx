@@ -32,19 +32,4 @@ function Art({enableEffects=true}){
     );
 }
 
-export default Art
-                            </CRTText.Span>
-                        </Link>
-                    </CRTText>
-                </div>
-                <div className="mt-10 flex flex-row gap-10 justify-center">
-                    <ProjectWrapper name="My poetry collection" enableEffects={enableEffects} link={poetrycollection}>
-                        <img src={quill} alt="Quill Icon" width="80"/>
-                    </ProjectWrapper>
-                </div>
-            </ArcadeMachine>
-        </CRTScanlines>
-    );
-}
-
-export default Art
+export default Art;
