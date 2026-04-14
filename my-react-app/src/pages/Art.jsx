@@ -15,17 +15,23 @@ function Art({enableEffects=true}){
                         <CRTText isEnabled={enableEffects}>
                             I write, &nbsp;
                             <Link to="/contact">
-                                <CRTText.Span color="neon" className="transition-colors duration-300  text-neon hover:text-pink underline" isEnabled={enableEffects}> 
+                                <CRTText.Span color="neon" className="transition-colors duration-300  text-neon hover:text-pink underline" isEnabled={enableEffects}>
                                     art?
                                 </CRTText.Span>
                             </Link>
                         </CRTText>
                     </div>
                     <div className="mt-6 sm:mt-8 md:mt-10 flex justify-center">
-                        <ProjectWrapper name="My poetry collection" enableEffects={enableEffects} link={poetrycollection}>
-                            <img src={quill} alt="Quill Icon" width="80"/>
+                        <ProjectWrapper
+                            name="Creators Paradise"
+                            tagline="A poetry collection"
+                            enableEffects={enableEffects}
+                            link={poetrycollection}
+                        >
+                            <img src={quill} alt="Quill pen icon" width="80"/>
                         </ProjectWrapper>
                     </div>
+                    {/* TODO: Add more art projects here when ready */}
                 </div>
             </ArcadeMachine>
         </CRTScanlines>

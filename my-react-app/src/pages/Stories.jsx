@@ -15,18 +15,28 @@ function Stories({enableEffects=true}){
                         <CRTText isEnabled={enableEffects}>
                             I tell &nbsp;
                             <Link to="/art">
-                                <CRTText.Span color="neon" className="transition-colors duration-300  text-neon hover:text-pink underline" isEnabled={enableEffects}> 
+                                <CRTText.Span color="neon" className="transition-colors duration-300  text-neon hover:text-pink underline" isEnabled={enableEffects}>
                                     stories.
                                 </CRTText.Span>
                             </Link>
                         </CRTText>
                     </div>
-                    <div className="mt-6 sm:mt-8 md:mt-10 flex flex-col sm:flex-row gap-8 sm:gap-12 md:gap-20 justify-center items-center">
-                        <ProjectWrapper name="News Reporting" enableEffects={enableEffects} link="https://dailynorthwestern.com/2024/10/09/city/animal-records-vinyl-store-opens-in-evanston/">
-                            <img src={news} alt="Newspaper Icon" width="70"/>
+                    <div className="mt-6 sm:mt-8 md:mt-10 flex flex-col sm:flex-row gap-8 sm:gap-12 md:gap-20 justify-center items-center sm:items-start">
+                        <ProjectWrapper
+                            name="News Reporting"
+                            tagline="Three bylines in the Daily Northwestern"
+                            enableEffects={enableEffects}
+                            link="https://dailynorthwestern.com/staff_name/jerry-zhou/"
+                        >
+                            <img src={news} alt="Newspaper icon" width="70"/>
                         </ProjectWrapper>
-                        <ProjectWrapper name="Video Journalism" enableEffects={enableEffects} link="https://www.youtube.com/playlist?list=PL_WrJLUaaNBcwWu6RRHy18aKSnK0z3Cwo">
-                            <img src={video} alt="Camera Icon" width="70"/>
+                        <ProjectWrapper
+                            name="Video Journalism"
+                            tagline="Video reporting for the Daily Northwestern"
+                            enableEffects={enableEffects}
+                            link="https://www.youtube.com/playlist?list=PL_WrJLUaaNBcwWu6RRHy18aKSnK0z3Cwo"
+                        >
+                            <img src={video} alt="Video camera icon" width="70"/>
                         </ProjectWrapper>
                     </div>
                 </div>

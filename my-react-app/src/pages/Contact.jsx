@@ -12,7 +12,7 @@ function Contact({enableEffects=true}){
                 <div className="w-full px-2">
                     <div className="text-3xl sm:text-4xl md:text-5xl">
                         <CRTText isEnabled={enableEffects}>
-                            Learn more:
+                            If something I made made you go, "huh, that's cool" —
                         </CRTText>
                     </div>
                     <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl mt-6 sm:mt-8 md:mt-10 flex flex-col sm:flex-row gap-4 sm:gap-6 md:gap-10 justify-center items-center">
@@ -22,7 +22,7 @@ function Contact({enableEffects=true}){
                     </div>
                     <div className="text-2xl sm:text-3xl md:text-4xl mt-6 sm:mt-8 md:mt-10">
                         <CRTText isEnabled={enableEffects}>
-                         Return to Projects:
+                            Return to Projects:
                         </CRTText>
                     </div>
                     <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl mt-4 sm:mt-6 md:mt-10 flex flex-col sm:flex-row gap-4 sm:gap-6 md:gap-10 justify-center items-center">
