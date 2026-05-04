@@ -3,6 +3,7 @@ import ArcadeMachine from '../components/ArcadeMachine.jsx';
 import CRTText from '../components/CRTText.jsx';
 import ProjectWrapper from '../components/ProjectWrapper.jsx';
 import lizard from '../assets/lizard.gif';
+import stepcity from '../assets/stepcity.png';
 import { Link } from 'react-router-dom';
 
 // TODO: Add icon image for Step City (e.g. src/assets/stepcity.png)
@@ -56,7 +57,7 @@ function Interactions({enableEffects=true}){
                             enableEffects={enableEffects}
                             link="/projects/stepcity"
                         >
-                            <PlaceholderIcon label="SC" />
+                             <img src={stepcity} alt="Cartoon step city character" width="75"/>
                         </ProjectWrapper>
                         <ProjectWrapper
                             name="The Daily Trend"
