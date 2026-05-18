@@ -4,6 +4,7 @@ import CRTText from '../components/CRTText.jsx';
 import ProjectWrapper from '../components/ProjectWrapper.jsx';
 import lizard from '../assets/lizard.gif';
 import stepcity from '../assets/stepcity.png';
+import dailytrend from '../assets/trend.png';
 import { Link } from 'react-router-dom';
 
 // TODO: Add icon image for Step City (e.g. src/assets/stepcity.png)
@@ -65,7 +66,7 @@ function Interactions({enableEffects=true}){
                             enableEffects={enableEffects}
                             link="/projects/dailytrend"
                         >
-                            <PlaceholderIcon label="DT" />
+                            <img src={dailytrend} alt="Trending fire icon with arrow point up inside of it" width="75"/>
                         </ProjectWrapper>
                     </div>
                 </div>
