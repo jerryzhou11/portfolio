@@ -1,6 +1,7 @@
 import Interactions from './pages/Interactions.jsx'
 import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Index from './pages/Index.jsx'
+import Play from './pages/Play.jsx'
 import Stories from './pages/Stories.jsx'
 import Footer from './components/Footer.jsx'
 import Art from './pages/Art.jsx'
@@ -13,6 +14,8 @@ import React, {useState} from 'react';
 
 function UnWrappedApp() {
   const [enableEffects, setEnableEffects] = useState(true);
+  const location = useLocation();
+  const isGame = location.pathname === '/play';
 
   const toggleEffects = () => {
     setEnableEffects(!enableEffects);
@@ -22,6 +25,7 @@ function UnWrappedApp() {
       <div>
         <Routes>
           <Route path="/" element={<Index enableEffects={enableEffects}/>} />
+          <Route path="/play" element={<Play enableEffects={enableEffects}/>} />
           <Route path="/interactions" element={<Interactions enableEffects={enableEffects}/>} />
           <Route path="/stories" element={<Stories enableEffects={enableEffects}/>} />
           <Route path="/art" element={<Art enableEffects={enableEffects}/>} />
@@ -30,7 +34,7 @@ function UnWrappedApp() {
           <Route path="/projects/stepcity" element={<StepCity enableEffects={enableEffects}/>} />
           <Route path="/projects/dailytrend" element={<DailyTrend enableEffects={enableEffects}/>} />
         </Routes>
-      <Footer/>
+      {!isGame && <Footer/>}
       <button
           className="fixed z-20 bottom-1 left-1/2 transform -translate-x-1/2 p-2 bg-black text-gray-300 rounded-lg"
           onClick={toggleEffects}

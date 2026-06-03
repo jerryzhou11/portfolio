@@ -7,7 +7,7 @@ function Index({enableEffects = true}){
     return(
         <div>
         <CRTScanlines isEnabled={enableEffects}>
-            <ArcadeMachine isEnabled={enableEffects} link="/interactions">
+            <ArcadeMachine isEnabled={enableEffects} link="/play">
                 <HomeContent isEnabled={enableEffects}/>
             </ArcadeMachine>
         </CRTScanlines>
