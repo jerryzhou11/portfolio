@@ -154,9 +154,19 @@ function drawWalls(ctx, room) {
   r(ctx, 0, H - TILE, W, 2, trim);
   r(ctx, TILE - 2, 0, 2, H, trim);
   r(ctx, W - TILE, 0, 2, H, trim);
-  // interior walls
+  // interior walls — dark body + a glowing trim edge so the maze reads clearly
+  // against the floor (a flat dark block would just disappear into it).
   for (const wseg of room.walls || []) {
-    r(ctx, wseg.x * TILE, wseg.y * TILE, wseg.w * TILE, wseg.h * TILE, wall);
+    const wx = wseg.x * TILE;
+    const wy = wseg.y * TILE;
+    const ww = wseg.w * TILE;
+    const wh = wseg.h * TILE;
+    r(ctx, wx, wy, ww, wh, wall); // dark body
+    ctx.globalAlpha = 0.14; // faint wash lifts the block off the floor
+    r(ctx, wx, wy, ww, wh, trim);
+    ctx.globalAlpha = 1;
+    r(ctx, wx, wy, ww, 2, trim); // lit top edge
+    r(ctx, wx, wy, 2, wh, trim); // lit left edge
   }
 }
 
@@ -173,7 +183,7 @@ export function drawLabel(ctx, text, cx, cy, color) {
   ctx.textBaseline = 'alphabetic';
 }
 
-function drawDoor(ctx, door) {
+function drawDoor(ctx, door, room) {
   const x = door.x * TILE;
   const y = door.y * TILE;
   const w = door.w * TILE;
@@ -188,8 +198,17 @@ function drawDoor(ctx, door) {
   r(ctx, x + 1, y + 1, w - 2, h - 1, accent);
   ctx.globalAlpha = 1;
   if (door.label) {
-    const labelY = door.y === 0 ? y + h + 6 : y - 6;
-    drawLabel(ctx, door.label, x + w / 2, labelY, accent);
+    // Tuck the label just inside the room from whichever edge the door is on,
+    // so doors spread across all four walls still read clearly.
+    const cols = room ? room.cols : 0;
+    const rows = room ? room.rows : 0;
+    let lx = x + w / 2;
+    let ly = y - 6;
+    if (door.y === 0) ly = y + h + 6; // top edge → below
+    else if (rows && door.y + door.h >= rows - 1) ly = y - 6; // bottom edge → above
+    else if (door.x === 0) { lx = x + w + 12; ly = y + h / 2; } // left edge → right
+    else if (cols && door.x + door.w >= cols - 1) { lx = x - 12; ly = y + h / 2; } // right edge → left
+    drawLabel(ctx, door.label, lx, ly, accent);
   }
 }
 
@@ -330,6 +349,17 @@ const DECOR = {
     r(ctx, x + 2, y + 6, 12, 2, '#825f3a');
     r(ctx, x + 7, y + 6, 2, 12, '#3a2c1f');
   },
+  sign(ctx, x, y) {
+    r(ctx, x + 7, y + 11, 2, 11, '#3a2c1f'); // post
+    r(ctx, x + 1, y + 1, 14, 11, '#2a2350'); // board frame
+    r(ctx, x + 2, y + 2, 12, 9, '#3a3470'); // board inner
+    r(ctx, x + 4, y + 4, 8, 1, '#2DE2E6'); // text lines
+    r(ctx, x + 4, y + 6, 8, 1, '#2DE2E6');
+    r(ctx, x + 4, y + 8, 5, 1, '#2DE2E6');
+    ctx.globalAlpha = 0.25;
+    r(ctx, x, y - 1, 16, 13, '#2DE2E6'); // soft glow
+    ctx.globalAlpha = 1;
+  },
 };
 
 export function drawDecor(ctx, type, px, py, opt) {
@@ -352,7 +382,7 @@ export function buildRoomBackground(room) {
     drawDecor(ctx, d.type, d.x * TILE, d.y * TILE, d);
   }
   for (const door of room.doors || []) {
-    drawDoor(ctx, door);
+    drawDoor(ctx, door, room);
   }
   return c;
 }

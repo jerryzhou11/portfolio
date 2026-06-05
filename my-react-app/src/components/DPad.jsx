@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 // Detect touch broadly: a coarse primary pointer (real phones/tablets) OR a
 // touch-capable device. The maxTouchPoints / ontouchstart checks also make
 // Chrome DevTools device-mode (touch emulation) light up the controls.
-function isTouchDevice() {
+export function isTouchDevice() {
   if (typeof window === 'undefined') return false;
   const coarse = !!(window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
   const touch =

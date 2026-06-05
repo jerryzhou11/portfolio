@@ -33,8 +33,8 @@ export const ROOMS = {
   hub: {
     id: 'hub',
     name: 'THE ATRIUM',
-    cols: 20,
-    rows: 12,
+    cols: 24,
+    rows: 16,
     theme: {
       floor: '#211a3e',
       floorAlt: '#1b1533',
@@ -42,26 +42,53 @@ export const ROOMS = {
       wall: '#171232',
       wallTrim: NEON,
     },
-    spawn: { x: 9, y: 9 },
-    entrySpawn: { x: 9, y: 9 },
-    walls: [],
+    // Spawn tucked just below the welcome sign so it's the first thing you see.
+    spawn: { x: 11, y: 8 },
+    entrySpawn: { x: 11, y: 8 },
+    // Gentle maze. An open perimeter ring (rows 1-2 / 13-14, cols 1-2 / 21-22)
+    // is kept clear of walls, which guarantees every door stays reachable no
+    // matter how the central stubs below are arranged — they only add a few
+    // turns, they can never seal a region off.
+    walls: [
+      { x: 4, y: 4, w: 5, h: 1 },
+      { x: 8, y: 4, w: 1, h: 3 },
+      { x: 12, y: 3, w: 1, h: 4 },
+      { x: 12, y: 6, w: 5, h: 1 },
+      { x: 16, y: 6, w: 1, h: 3 },
+      { x: 5, y: 9, w: 5, h: 1 },
+      { x: 9, y: 9, w: 1, h: 3 },
+      { x: 13, y: 10, w: 6, h: 1 },
+      { x: 18, y: 10, w: 1, h: 2 },
+    ],
+    // Doors spread across all four walls + a camouflaged secret in the corner.
     doors: [
-      { x: 2, y: 0, w: 2, h: 1, to: 'jungle', accent: GREEN, label: 'LIZARD' },
-      { x: 7, y: 0, w: 2, h: 1, to: 'city', accent: BLUE, label: 'STEP CITY' },
-      { x: 12, y: 0, w: 2, h: 1, to: 'newsroom', accent: PINK, label: 'NEWS' },
-      { x: 16, y: 0, w: 2, h: 1, to: 'gallery', accent: WHITE, label: 'POETRY' },
-      // secret door, camouflaged against the wall (no label)
-      { x: 18, y: 11, w: 1, h: 1, to: 'hidden', accent: '#171232', secret: true },
+      { x: 4, y: 0, w: 2, h: 1, to: 'jungle', accent: GREEN, label: 'LIZARD' }, // top
+      { x: 23, y: 6, w: 1, h: 2, to: 'city', accent: BLUE, label: 'STEP CITY' }, // right
+      { x: 14, y: 15, w: 2, h: 1, to: 'newsroom', accent: PINK, label: 'NEWS' }, // bottom
+      { x: 0, y: 9, w: 1, h: 2, to: 'gallery', accent: WHITE, label: 'POETRY' }, // left
+      // secret door, camouflaged against the wall in the back corner (no label)
+      { x: 21, y: 15, w: 1, h: 1, to: 'hidden', accent: '#171232', secret: true },
     ],
     decor: [
-      { type: 'statue', x: 9, y: 4, w: 1, h: 2, solid: true },
-      { type: 'rug', x: 7, y: 7, w: 6, h: 3 },
-      { type: 'lamp', x: 2, y: 8, solid: true },
-      { type: 'lamp', x: 17, y: 8, solid: true },
+      { type: 'rug', x: 10, y: 7, w: 4, h: 3 },
+      { type: 'lamp', x: 6, y: 7, solid: true },
+      { type: 'lamp', x: 16, y: 11, solid: true },
       { type: 'plant', x: 1, y: 1 },
-      { type: 'plant', x: 18, y: 1 },
+      { type: 'plant', x: 22, y: 1 },
+      { type: 'plant', x: 1, y: 14 },
+      { type: 'plant', x: 22, y: 14 },
     ],
-    interactables: [],
+    interactables: [
+      {
+        id: 'welcome',
+        x: 11, y: 7, w: 1, h: 1,
+        art: 'sign',
+        title: "Hi, I'm Jerry",
+        blurb:
+          'Welcome to my portfolio website. Navigate with WASD on desktop or the gamepad on mobile. Please freely explore!',
+        playLabel: 'EXPLORE ▶',
+      },
+    ],
   },
 
   // =========================================================================
