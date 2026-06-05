@@ -4,9 +4,9 @@ import {
   PLAYER_BOX_W, PLAYER_BOX_H, HERO_H, INTERACT_RANGE,
   DIR,
 } from './constants.js';
-import { drawHero, drawDecor, drawLabel, buildRoomBackground } from './draw.js';
+import { drawHero, drawDecor, buildRoomBackground } from './draw.js';
 import { ROOMS, boxHitsSolid, spawnToPixels, interactableCenter, doorEntry } from './rooms.js';
-import DPad from '../components/DPad.jsx';
+import DPad, { isTouchDevice } from '../components/DPad.jsx';
 import InteractionOverlay from '../components/InteractionOverlay.jsx';
 import RoomTransition from '../components/RoomTransition.jsx';
 
@@ -21,6 +21,13 @@ export default function GameWorld({ enableEffects = true }) {
 
   const [overlay, setOverlay] = useState(null);
   const [transition, setTransition] = useState(null); // 'out' | 'in' | null
+  const [showHint, setShowHint] = useState(false); // "press to interact" pill
+  const [isTouch, setIsTouch] = useState(false);
+
+  // Decide once on mount whether to phrase the hint for touch or keyboard.
+  useEffect(() => {
+    setIsTouch(isTouchDevice());
+  }, []);
 
   // Mutable game state (kept in a ref so the loop never reads stale values).
   const gameRef = useRef(null);
@@ -28,7 +35,8 @@ export default function GameWorld({ enableEffects = true }) {
     const sp = spawnToPixels(ROOMS.hub.spawn);
     gameRef.current = {
       roomId: 'hub',
-      player: { x: sp.x, y: sp.y, dir: DIR.DOWN, frame: 0, anim: 0, moving: false },
+      // Spawn facing up toward the welcome sign that sits one tile above.
+      player: { x: sp.x, y: sp.y, dir: DIR.UP, frame: 0, anim: 0, moving: false },
       camX: 0, camY: 0,
       viewW: VIEW_W, viewH: VIEW_H,
       doorCooldown: 0.25,
@@ -37,6 +45,7 @@ export default function GameWorld({ enableEffects = true }) {
       nearby: null,
       transitioning: false,
       overlayOpen: false,
+      _hintShown: false,
       timers: [],
     };
   }
@@ -156,10 +165,22 @@ export default function GameWorld({ enableEffects = true }) {
       window.__api = { openOverlay, startTransition, setTransition, setOverlay, closeOverlay };
     }
 
+    // Show/hide the DOM "press to interact" pill, but only flip React state
+    // when it actually changes (this runs every frame).
+    function setHint(on) {
+      if (on !== g._hintShown) {
+        g._hintShown = on;
+        setShowHint(on);
+      }
+    }
+
     function update(dt) {
       if (g.doorCooldown > 0) g.doorCooldown -= dt;
       if (g.overlayCooldown > 0) g.overlayCooldown -= dt;
-      if (g.transitioning) return;
+      if (g.transitioning) {
+        setHint(false);
+        return;
+      }
 
       const inp = inputRef.current;
       const interact = !!inp.interact;
@@ -167,6 +188,7 @@ export default function GameWorld({ enableEffects = true }) {
       g.prevInteract = interact;
 
       if (g.overlayOpen) {
+        setHint(false);
         if (interactPressed && g.overlayCooldown <= 0) closeOverlay();
         return;
       }
@@ -234,6 +256,7 @@ export default function GameWorld({ enableEffects = true }) {
         }
       }
       g.nearby = near;
+      setHint(!!near);
       if (interactPressed && near && g.overlayCooldown <= 0) openOverlay(near);
 
       updateCamera(false);
@@ -264,11 +287,6 @@ export default function GameWorld({ enableEffects = true }) {
       }
 
       drawHero(ctx, g.player.x - g.camX, g.player.y - g.camY, g.player.dir, g.player.frame, g.player.moving);
-
-      if (g.nearby && !g.overlayOpen) {
-        const bob = Math.sin(now / 200) * 1.5;
-        drawLabel(ctx, 'OPEN', interactableCenter(g.nearby).x - g.camX, g.nearby.y * TILE - g.camY - 5 + bob, '#2DE2E6');
-      }
     }
 
     let raf;
@@ -323,24 +341,22 @@ export default function GameWorld({ enableEffects = true }) {
         ref={canvasRef}
         width={VIEW_W}
         height={VIEW_H}
-        className={`w-full h-full${transition ? ' room-glitch' : ''}`}
+        className="w-full h-full"
         style={{ imageRendering: 'pixelated', objectFit: 'fill', display: 'block' }}
       />
+      {showHint && !overlay && (
+        <div
+          className="absolute left-1/2 -translate-x-1/2 z-20 pointer-events-none whitespace-nowrap rounded-full border border-neon/70 bg-black/70 px-4 py-2 text-neon font-pixelify text-sm sm:text-base"
+          // On touch the d-pad owns the bottom of the screen, so float the hint
+          // up top there; on desktop it sits just above the floor.
+          style={isTouch ? { top: '0.75rem' } : { bottom: '1rem' }}
+        >
+          {isTouch ? 'Tap Ⓐ to interact' : 'Press SPACE to interact'}
+        </div>
+      )}
       <InteractionOverlay data={overlay} onClose={closeOverlay} enableEffects={enableEffects} />
-      <RoomTransition active={!!transition} />
+      <RoomTransition active={!!transition} enableEffects={enableEffects} />
       <DPad inputRef={inputRef} />
-      <style>{`
-        @keyframes roomGlitch {
-          0%   { filter: none; }
-          15%  { filter: hue-rotate(90deg) saturate(2.6) brightness(1.35); }
-          30%  { filter: hue-rotate(-130deg) saturate(2.8) contrast(1.5); }
-          45%  { filter: invert(1) hue-rotate(80deg) saturate(2); }
-          60%  { filter: hue-rotate(160deg) saturate(2.4) brightness(1.2); }
-          80%  { filter: invert(1) hue-rotate(-70deg) saturate(1.8); }
-          100% { filter: none; }
-        }
-        .room-glitch { animation: roomGlitch 210ms steps(3) 2; }
-      `}</style>
     </div>
   );
 }

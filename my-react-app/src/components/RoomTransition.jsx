@@ -2,9 +2,12 @@ import React, { useMemo } from 'react';
 
 // Room-swap glitch in the same CRT style as the site's GlitchTransition:
 // white static lines with jagged protrusions sweep up/down while the room
-// underneath cuts over, plus a quick RGB ghost tint. Overlays the game box.
-// Prop: active (boolean).
-export default function RoomTransition({ active }) {
+// underneath cuts over. A subtle full-screen colour flash (cyan→magenta, the
+// CRT RGB-split feel) rides along on top — kept low-opacity and brief so it
+// reads as a quick pulse, not a jarring strobe. The flash only renders when
+// CRT effects are on (the "Disable Effects" toggle); the line sweep always
+// plays. Props: active (boolean), enableEffects (boolean).
+export default function RoomTransition({ active, enableEffects = true }) {
   // Regenerate the random line layout each time a transition begins.
   const cfg = useMemo(() => {
     const dir = Math.random() > 0.5 ? 'up' : 'down';
@@ -31,19 +34,17 @@ export default function RoomTransition({ active }) {
 
   return (
     <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">
-      {/* RGB ghost tint — bold magenta/cyan strobe that alternates twice */}
-      <div className="absolute inset-0" style={{ mixBlendMode: 'screen' }}>
+      {/* Subtle full-screen CRT colour flash, gated by the effects toggle. */}
+      {enableEffects && (
         <div
-          className="absolute inset-0"
-          style={{ background: 'rgba(255,0,255,0.5)', transform: 'translateX(-6px)', animation: 'rtFlashA 420ms linear both' }}
+          className="absolute inset-0 rt-flash"
+          style={{
+            background: 'linear-gradient(120deg, rgba(45,226,230,0.85), rgba(255,0,255,0.6))',
+          }}
         />
-        <div
-          className="absolute inset-0"
-          style={{ background: 'rgba(45,226,230,0.5)', transform: 'translateX(6px)', animation: 'rtFlashB 420ms linear both' }}
-        />
-      </div>
+      )}
 
-      {/* White static line sweeps with jagged protrusions */}
+      {/* White static line sweeps with jagged protrusions (the overlay strobe) */}
       {lines.map((ln, i) => (
         <div
           key={i}
@@ -68,8 +69,13 @@ export default function RoomTransition({ active }) {
       ))}
 
       <style>{`
-        @keyframes rtFlashA { 0% { opacity: 0 } 12% { opacity: 1 } 30% { opacity: 0 } 58% { opacity: 1 } 78% { opacity: 0 } 100% { opacity: 0 } }
-        @keyframes rtFlashB { 0% { opacity: 0 } 26% { opacity: 0 } 42% { opacity: 1 } 60% { opacity: 0 } 86% { opacity: 1 } 100% { opacity: 0 } }
+        @keyframes rtFlash {
+          0%   { opacity: 0; }
+          14%  { opacity: 0.2; }
+          45%  { opacity: 0.06; }
+          100% { opacity: 0; }
+        }
+        .rt-flash { animation: rtFlash 380ms ease-out forwards; }
       `}</style>
     </div>
   );

@@ -10,39 +10,51 @@ export default function InteractionOverlay({ data, onClose, enableEffects = true
     <div className="fixed inset-0 z-30 flex items-center justify-center p-4" onClick={onClose}>
       <div className="absolute inset-0 bg-black/70" />
       <div
-        className="relative z-10 w-full max-w-sm rounded-2xl border-2 border-neon bg-purple/95 p-6 text-center font-pixelify animate-overlay-pop"
+        className="relative z-10 w-full max-w-md rounded-2xl border-2 border-neon bg-purple/95 p-7 sm:p-8 text-center font-pixelify animate-overlay-pop"
         onClick={(e) => e.stopPropagation()}
       >
         {data.thumb && (
           <img
             src={data.thumb}
             alt=""
-            className="mx-auto mb-4 h-20 w-auto"
+            className="mx-auto mb-5 h-24 sm:h-28 w-auto"
             style={{ imageRendering: 'pixelated' }}
           />
         )}
-        <div className="text-2xl sm:text-3xl mb-2">
+        <div className="text-3xl sm:text-4xl mb-3">
           <CRTText isEnabled={enableEffects}>{data.title}</CRTText>
         </div>
         {data.blurb && (
-          <div className="text-sm sm:text-base text-gray-300 mb-6 leading-snug">
+          <div className="text-lg sm:text-xl text-gray-200 mb-7 leading-relaxed">
             <CRTText.Span isEnabled={enableEffects}>{data.blurb}</CRTText.Span>
           </div>
         )}
-        <a
-          href={data.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block px-8 py-3 rounded-xl bg-neon text-black text-xl font-bold hover:bg-pink hover:text-white transition-colors"
-        >
-          {data.playLabel || 'PLAY ▶'}
-        </a>
-        <button
-          onClick={onClose}
-          className="block mx-auto mt-5 text-xs text-gray-400 hover:text-neon transition-colors"
-        >
-          close ✕
-        </button>
+        {data.href ? (
+          <a
+            href={data.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-9 py-4 rounded-xl bg-neon text-black text-2xl font-bold hover:bg-pink hover:text-white transition-colors"
+          >
+            {data.playLabel || 'PLAY ▶'}
+          </a>
+        ) : (
+          // No link (e.g. the welcome sign): the button just dismisses the overlay.
+          <button
+            onClick={onClose}
+            className="inline-block px-9 py-4 rounded-xl bg-neon text-black text-2xl font-bold hover:bg-pink hover:text-white transition-colors"
+          >
+            {data.playLabel || 'OK'}
+          </button>
+        )}
+        {data.href && (
+          <button
+            onClick={onClose}
+            className="block mx-auto mt-6 text-sm text-gray-400 hover:text-neon transition-colors"
+          >
+            close ✕
+          </button>
+        )}
       </div>
 
       <style>{`
